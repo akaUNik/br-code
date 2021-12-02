@@ -1,6 +1,6 @@
-# brew install zbar
-# pip install pyzbar
-from pyzbar.pyzbar import decode as qrdecode
-from PIL import Image
+from brcode import BRCode
 
-print(qrdecode(Image.open('covid-cert.png')))
+input_image = 'covid-cert.png'
+
+qr = BRCode()
+print(qr.decode_image(input_image))
