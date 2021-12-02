@@ -1,10 +1,6 @@
-# pip install opencv-python
-import cv2 as cv
+# brew install zbar
+# pip install pyzbar
+from pyzbar.pyzbar import decode as qrdecode
+from PIL import Image
 
-im = cv.imread('covid-cert.png')
-det = cv.QRCodeDetector()
-retval, points, straight_qrcode = det.detectAndDecode(im)
-
-print(retval)
-print(points)
-print(straight_qrcode)
+print(qrdecode(Image.open('covid-cert.png')))
