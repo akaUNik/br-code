@@ -5,5 +5,7 @@ embeded_image = 'logo_stroke.png' # изображение, которое бу�
 output_image = 'br-code.png'  # файл, куда будет записан qr-code
 
 qr = BRCode()
-qr.make_image(url, embeded_image)
+img = qr.make_image(url, embeded_image)
+print(img.mode)
 qr.save_image(output_image)
+qr.save_image(output_image, 'EPS')

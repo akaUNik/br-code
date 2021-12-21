@@ -27,8 +27,13 @@ class BRCode:
         )
         return self.img
 
-    def save_image(self, image_path) -> None:
-        self.img.save(image_path)
+    def save_image(self, image_path, format='PNG') -> None:
+        if format == 'PNG':
+            self.img.save(image_path)
+        elif format == 'EPS':
+            if self.img.mode == 'RGBA':
+                fig = self.img.convert('RGB')
+                fig.save(f'{image_path}-RGB.eps', lossless = True)
 
     def decode_image(self, input_image) -> list:
         return qrdecode(Image.open(input_image))

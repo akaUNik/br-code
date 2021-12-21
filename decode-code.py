@@ -1,6 +1,5 @@
 from brcode import BRCode
-
-input_image = 'covid-cert.png'
-
 qr = BRCode()
+
+input_image = 'max2.jpg'
 print(qr.decode_image(input_image))
