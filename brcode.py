@@ -17,6 +17,12 @@ class BRCode:
             error_correction=qrcode.constants.ERROR_CORRECT_H
         )
 
+    def __enter__(self):
+        return self
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        self.qr.clear()
+
     def make_image(self, url, embeded_image):
         self.qr.add_data(url)
         self.img = self.qr.make_image(
